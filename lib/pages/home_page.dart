@@ -30,51 +30,54 @@ class _HomePageState extends State<HomePage> {
             Line(),
             Container(
 //              color: Colors.black,
-              height: 96,
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                padding:
-                    const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8.0),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: CircleAvatar(minRadius: 32),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: CircleAvatar(minRadius: 32),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: CircleAvatar(minRadius: 32),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: CircleAvatar(minRadius: 32),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: CircleAvatar(minRadius: 32),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: CircleAvatar(minRadius: 32),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+                height: 96,
+                child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 16.0, horizontal: 8.0),
+                    child: Row(children: <Widget>[
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: CircleAvatar(minRadius: 32),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: CircleAvatar(minRadius: 32),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: CircleAvatar(minRadius: 32),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: CircleAvatar(minRadius: 32),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: CircleAvatar(minRadius: 32),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: CircleAvatar(minRadius: 32),
+                      )
+                    ]))),
 
             Padding(
                 padding: const EdgeInsets.only(bottom: 16.0),
                 child: Container(
                     width: MediaQuery.of(context).size.width - 16,
                     height: MediaQuery.of(context).size.width / 1.9,
+                    child: Center(
+                        child: OutlineButton(
+                            onPressed: () {}, // TODO
+                            child: Text('TROQUE PRODUTOS',
+                                style: TextStyle(color: Colors.white)),
+                            borderSide: BorderSide(color: Colors.white),
+                            shape: StadiumBorder())),
                     decoration: BoxDecoration(
+                        color: Colors.blue,
                         image: DecorationImage(
-                            image: NetworkImage(
-                                'https://missaodigital.magazineluiza.com.br/wp-content/uploads/2019/05/kv-final.png'),
+                            image: AssetImage('images/back.jpeg'),
                             fit: BoxFit.cover)))),
 
             Container(
