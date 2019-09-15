@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => ProductsPage()));
-                          }, // TODO
+                          },
                           child: Text('TROQUE PRODUTOS',
                               style: TextStyle(color: Colors.white)),
                           borderSide: BorderSide(color: Colors.white),
