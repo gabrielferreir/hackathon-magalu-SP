@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hackathonmagalusp/components/custom_drawer.dart';
+import 'package:hackathonmagalusp/components/item_points.dart';
 import 'package:hackathonmagalusp/components/line.dart';
 
 class PointsPage extends StatefulWidget {
@@ -79,8 +80,11 @@ class _PointsPageState extends State<PointsPage> {
                                   color: Colors.white,
                                   fontSize: 18,
                                   fontWeight: FontWeight.w500))
-                        ]))
-              ]))
+                        ])),
+              ])),
+          Column(
+            children: <Widget>[ItemPoints()],
+          )
         ])));
   }
 }
