@@ -13,19 +13,29 @@ class _DetailProductState extends State<DetailProduct> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: CustomDrawer(),
-        appBar: AppBar(
-            title: Padding(
-                padding: const EdgeInsets.only(top: 8.0),
-                child: SvgPicture.asset('images/logo.svg', height: 20)),
-            actions: <Widget>[
-              IconButton(icon: Icon(Icons.search), onPressed: () {}),
-              IconButton(
-                  icon: Icon(FontAwesomeIcons.shoppingBag), onPressed: () {})
-            ]),
+        appBar: AppBar(title: Text('Detalhes'), actions: <Widget>[
+          IconButton(icon: Icon(Icons.search), onPressed: () {}),
+          IconButton(icon: Icon(FontAwesomeIcons.shoppingBag), onPressed: () {})
+        ]),
         body: SingleChildScrollView(
-            child: Column(children: <Widget>[
-          Line(),
-        ])));
+            child: Column(children: <Widget>[Line(), _slider()])));
+  }
+
+  Widget _slider() {
+    return Container(
+        width: double.infinity,
+        height: 300.0,
+        child: DefaultTabController(
+            length: 4,
+            child: PageView(children: <Widget>[
+              Container(
+                  width: double.infinity, height: 300.0, color: Colors.red),
+              Container(
+                  width: double.infinity, height: 300.0, color: Colors.blue),
+              Container(
+                  width: double.infinity, height: 300.0, color: Colors.green),
+              Container(
+                  width: double.infinity, height: 300.0, color: Colors.yellow)
+            ])));
   }
 }
