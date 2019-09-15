@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:hackathonmagalusp/pages/home_page.dart';
+import 'package:hackathonmagalusp/pages/home/home_page.dart';
 import 'package:hackathonmagalusp/pages/points_page.dart';
 
 class CustomDrawer extends StatelessWidget {

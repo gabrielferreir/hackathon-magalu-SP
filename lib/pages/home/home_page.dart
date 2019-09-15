@@ -4,8 +4,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hackathonmagalusp/components/custom_drawer.dart';
 import 'package:hackathonmagalusp/components/item_product.dart';
 import 'package:hackathonmagalusp/components/line.dart';
-import 'package:hackathonmagalusp/pages/detail_product.dart';
+import 'package:hackathonmagalusp/models/product_model.dart';
 import 'package:hackathonmagalusp/pages/products_page.dart';
+import 'package:hackathonmagalusp/repository/products_repository.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -13,6 +14,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool loading = true;
+  List<ProductModel> list = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +34,6 @@ class _HomePageState extends State<HomePage> {
             child: Column(children: <Widget>[
           Line(),
           Container(
-//              color: Colors.black,
               height: 96,
               child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
@@ -78,14 +81,31 @@ class _HomePageState extends State<HomePage> {
                       image: DecorationImage(
                           image: AssetImage('images/back.jpeg'),
                           fit: BoxFit.cover)))),
-          Container(
-              height: (MediaQuery.of(context).size.width * 1.4) / 2,
-              child: GridView.count(
-                physics: NeverScrollableScrollPhysics(),
-                crossAxisCount: 2,
-                childAspectRatio: 1 / 1.4,
-                children: <Widget>[ItemProduct(), ItemProduct()],
-              ))
+          !loading
+              ? Container(
+                  height: (MediaQuery.of(context).size.width * 1.4) / 2,
+                  child: GridView.count(
+                    physics: NeverScrollableScrollPhysics(),
+                    crossAxisCount: 2,
+                    childAspectRatio: 1 / 1.4,
+                    children: list.map((item) => ItemProduct(item)).toList(),
+                  ))
+              : Center(
+                  child: CircularProgressIndicator(),
+                )
         ])));
+  }
+
+  @override
+  void initState() {
+    get();
+  }
+
+  get() async {
+    final products = await ProductsRepository().getPrincipal();
+    setState(() {
+      loading = false;
+      list = products;
+    });
   }
 }
