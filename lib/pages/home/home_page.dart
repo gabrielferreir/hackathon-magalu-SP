@@ -5,7 +5,7 @@ import 'package:hackathonmagalusp/components/custom_drawer.dart';
 import 'package:hackathonmagalusp/components/item_product.dart';
 import 'package:hackathonmagalusp/components/line.dart';
 import 'package:hackathonmagalusp/models/product_model.dart';
-import 'package:hackathonmagalusp/pages/products_page.dart';
+import 'package:hackathonmagalusp/pages/products_page/products_page.dart';
 import 'package:hackathonmagalusp/repository/products_repository.dart';
 
 class HomePage extends StatefulWidget {

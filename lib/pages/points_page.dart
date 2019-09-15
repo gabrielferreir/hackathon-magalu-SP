@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hackathonmagalusp/components/custom_drawer.dart';
 import 'package:hackathonmagalusp/components/item_points.dart';
 import 'package:hackathonmagalusp/components/line.dart';
-import 'package:hackathonmagalusp/pages/products_page.dart';
+import 'package:hackathonmagalusp/pages/products_page/products_page.dart';
 
 class PointsPage extends StatefulWidget {
   @override

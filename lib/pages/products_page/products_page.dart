@@ -20,6 +20,8 @@ import 'package:hackathonmagalusp/components/item_product_points.dart';
 import 'package:hackathonmagalusp/components/item_product_points.dart';
 import 'package:hackathonmagalusp/components/item_product_points.dart';
 import 'package:hackathonmagalusp/components/line.dart';
+import 'package:hackathonmagalusp/models/product_model.dart';
+import 'package:hackathonmagalusp/repository/products_repository.dart';
 
 class ProductsPage extends StatefulWidget {
   @override
@@ -27,6 +29,9 @@ class ProductsPage extends StatefulWidget {
 }
 
 class _ProductsPageState extends State<ProductsPage> {
+  bool loading = true;
+  List<ProductModel> list = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,35 +45,33 @@ class _ProductsPageState extends State<ProductsPage> {
               IconButton(
                   icon: Icon(FontAwesomeIcons.shoppingBag), onPressed: () {})
             ]),
-        body: Column(
-          children: <Widget>[
-            Line(),
-            Expanded(
-              child: GridView.count(
-                padding: const EdgeInsets.symmetric(vertical: 16),
-                crossAxisCount: 2,
-                childAspectRatio: 1 / 1.4,
+        body: loading
+            ? Center(child: CircularProgressIndicator())
+            : Column(
                 children: <Widget>[
-                  ItemProductPoints(),
-                  ItemProductPoints(),
-                  ItemProductPoints(),
-                  ItemProductPoints(),
-                  ItemProductPoints(),
-                  ItemProductPoints(),
-                  ItemProductPoints(),
-                  ItemProductPoints(),
-                  ItemProductPoints(),
-                  ItemProductPoints(),
-                  ItemProductPoints(),
-                  ItemProductPoints(),
-                  ItemProductPoints(),
-                  ItemProductPoints(),
-                  ItemProductPoints(),
-                  ItemProductPoints()
+                  Line(),
+                  Expanded(
+                    child: GridView.count(
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      crossAxisCount: 2,
+                      childAspectRatio: 1 / 1.4,
+                      children: list.map((item) => ItemProductPoints(item)).toList(),
+                    ),
+                  )
                 ],
-              ),
-            )
-          ],
-        ));
+              ));
+  }
+
+  @override
+  void initState() {
+    get();
+  }
+
+  get() async {
+    final products = await ProductsRepository().getCaldaLonga();
+    setState(() {
+      loading = false;
+      list = products;
+    });
   }
 }
