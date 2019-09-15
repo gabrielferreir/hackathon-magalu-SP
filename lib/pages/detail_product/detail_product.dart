@@ -3,10 +3,15 @@ import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hackathonmagalusp/components/custom_drawer.dart';
 import 'package:hackathonmagalusp/components/line.dart';
+import 'package:hackathonmagalusp/models/product_model.dart';
 
-import 'checkout_page.dart';
+import '../checkout_page.dart';
 
 class DetailProduct extends StatefulWidget {
+  final ProductModel productModel;
+
+  DetailProduct(this.productModel);
+
   @override
   _DetailProductState createState() => _DetailProductState();
 }
@@ -22,11 +27,11 @@ class _DetailProductState extends State<DetailProduct> {
         body: SingleChildScrollView(
             child: Column(children: <Widget>[
           Line(),
-          _slider(),
+          _slider(widget.productModel.listImages),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Text(
-              'Smart TV LED 32” HD LG 32LK61 2 HDMI 2 USB Wi-Fi e Conversor Digital Integrados',
+              widget.productModel.name,
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500),
             ),
           ),
@@ -36,7 +41,7 @@ class _DetailProductState extends State<DetailProduct> {
         ])));
   }
 
-  Widget _slider() {
+  Widget _slider(List<String> images) {
     return Container(
         width: double.infinity,
         height: 300.0,
@@ -44,13 +49,24 @@ class _DetailProductState extends State<DetailProduct> {
             length: 4,
             child: PageView(children: <Widget>[
               Container(
-                  width: double.infinity, height: 300.0, color: Colors.red),
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: NetworkImage(images[0]), fit: BoxFit.contain)),
+                width: double.infinity,
+                height: 300.0,
+              ),
               Container(
-                  width: double.infinity, height: 300.0, color: Colors.blue),
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: NetworkImage(images[1]), fit: BoxFit.contain)),
+                  width: double.infinity,
+                  height: 300.0),
               Container(
-                  width: double.infinity, height: 300.0, color: Colors.green),
-              Container(
-                  width: double.infinity, height: 300.0, color: Colors.yellow)
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: NetworkImage(images[2]), fit: BoxFit.contain)),
+                  width: double.infinity,
+                  height: 300.0)
             ])));
   }
 
@@ -102,8 +118,7 @@ class _DetailProductState extends State<DetailProduct> {
       ListTile(title: Text('Apresentação do produto')),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Text(
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."),
+        child: Text(widget.productModel.description),
       )
     ]);
   }

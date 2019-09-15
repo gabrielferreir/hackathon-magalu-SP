@@ -2,28 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hackathonmagalusp/components/custom_drawer.dart';
-import 'package:hackathonmagalusp/components/item_product.dart';
-import 'package:hackathonmagalusp/components/item_product_points.dart';
-import 'package:hackathonmagalusp/components/item_product_points.dart';
-import 'package:hackathonmagalusp/components/item_product_points.dart';
-import 'package:hackathonmagalusp/components/item_product_points.dart';
-import 'package:hackathonmagalusp/components/item_product_points.dart';
-import 'package:hackathonmagalusp/components/item_product_points.dart';
-import 'package:hackathonmagalusp/components/item_product_points.dart';
-import 'package:hackathonmagalusp/components/item_product_points.dart';
-import 'package:hackathonmagalusp/components/item_product_points.dart';
-import 'package:hackathonmagalusp/components/item_product_points.dart';
-import 'package:hackathonmagalusp/components/item_product_points.dart';
-import 'package:hackathonmagalusp/components/item_product_points.dart';
-import 'package:hackathonmagalusp/components/item_product_points.dart';
-import 'package:hackathonmagalusp/components/item_product_points.dart';
-import 'package:hackathonmagalusp/components/item_product_points.dart';
 import 'package:hackathonmagalusp/components/item_product_points.dart';
 import 'package:hackathonmagalusp/components/line.dart';
 import 'package:hackathonmagalusp/models/product_model.dart';
 import 'package:hackathonmagalusp/repository/products_repository.dart';
 
 class ProductsPage extends StatefulWidget {
+
   @override
   _ProductsPageState createState() => _ProductsPageState();
 }
@@ -55,7 +40,8 @@ class _ProductsPageState extends State<ProductsPage> {
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       crossAxisCount: 2,
                       childAspectRatio: 1 / 1.4,
-                      children: list.map((item) => ItemProductPoints(item)).toList(),
+                      children:
+                          list.map((item) => ItemProductPoints(item)).toList(),
                     ),
                   )
                 ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackathonmagalusp/models/product_model.dart';
-import 'package:hackathonmagalusp/pages/detail_product.dart';
+import 'package:hackathonmagalusp/pages/detail_product/detail_product.dart';
 
 class ItemProductPoints extends StatelessWidget {
   final ProductModel productModel;
@@ -12,7 +12,7 @@ class ItemProductPoints extends StatelessWidget {
     return InkWell(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => DetailProduct()));
+            context, MaterialPageRoute(builder: (context) => DetailProduct(productModel)));
       },
       child: Container(
           child: Column(
