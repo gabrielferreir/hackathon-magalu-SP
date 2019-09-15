@@ -5,7 +5,7 @@ import 'package:hackathonmagalusp/components/custom_drawer.dart';
 import 'package:hackathonmagalusp/components/line.dart';
 import 'package:hackathonmagalusp/models/product_model.dart';
 
-import '../checkout_page.dart';
+import '../checkout_page/checkout_page.dart';
 
 class DetailProduct extends StatefulWidget {
   final ProductModel productModel;
