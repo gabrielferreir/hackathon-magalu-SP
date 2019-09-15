@@ -4,6 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hackathonmagalusp/components/custom_drawer.dart';
 import 'package:hackathonmagalusp/components/line.dart';
 
+import 'checkout_page.dart';
+
 class DetailProduct extends StatefulWidget {
   @override
   _DetailProductState createState() => _DetailProductState();
@@ -86,7 +88,10 @@ class _DetailProductState extends State<DetailProduct> {
             child: RaisedButton.icon(
                 elevation: 0.0,
                 color: Colors.green,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => CheckoutPage()));
+                },
                 icon: Icon(FontAwesomeIcons.shoppingBag, color: Colors.white),
                 label: Text('REALIZAR TROCA',
                     style: TextStyle(color: Colors.white)))));
