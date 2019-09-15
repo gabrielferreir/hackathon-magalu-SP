@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:hackathonmagalusp/helpers/database.dart';
+import 'package:hackathonmagalusp/models/product_model.dart';
 import 'package:hackathonmagalusp/pages/success_page.dart';
+import 'package:hackathonmagalusp/repository/request_repository.dart';
 
 class CheckoutPage extends StatefulWidget {
+  final ProductModel productModel;
+
+  CheckoutPage(this.productModel);
+
   @override
   _CheckoutPageState createState() => _CheckoutPageState();
 }
@@ -72,10 +79,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
           Align(
               alignment: Alignment.bottomCenter,
               child: InkWell(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => SuccessPage()));
-                  },
+                  onTap: _save,
                   child: Container(
                       width: double.infinity,
                       height: 56,
@@ -87,5 +91,13 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                   fontWeight: FontWeight.w500,
                                   fontSize: 14))))))
         ]));
+  }
+
+  _save() async {
+    print('save');
+    await RequestRepository().save(widget.productModel.name,
+        widget.productModel.points, widget.productModel.listImages[0]);
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => SuccessPage()));
   }
 }

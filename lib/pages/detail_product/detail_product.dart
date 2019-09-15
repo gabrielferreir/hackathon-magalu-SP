@@ -105,8 +105,11 @@ class _DetailProductState extends State<DetailProduct> {
                 elevation: 0.0,
                 color: Colors.green,
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => CheckoutPage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              CheckoutPage(widget.productModel)));
                 },
                 icon: Icon(FontAwesomeIcons.shoppingBag, color: Colors.white),
                 label: Text('REALIZAR TROCA',

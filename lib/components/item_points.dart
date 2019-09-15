@@ -15,7 +15,8 @@ class _ItemPointsState extends State<ItemPoints> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.only(
+            left: 16.0, top: 16.0, right: 16.0, bottom: 64),
         child: Card(
             child: Column(children: <Widget>[
           Padding(
