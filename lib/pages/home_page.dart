@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hackathonmagalusp/components/custom_drawer.dart';
 import 'package:hackathonmagalusp/components/item_product.dart';
 import 'package:hackathonmagalusp/components/line.dart';
+import 'package:hackathonmagalusp/pages/detail_product.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -61,7 +62,12 @@ class _HomePageState extends State<HomePage> {
                   height: MediaQuery.of(context).size.width / 1.9,
                   child: Center(
                       child: OutlineButton(
-                          onPressed: () {}, // TODO
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => DetailProduct()));
+                          }, // TODO
                           child: Text('TROQUE PRODUTOS',
                               style: TextStyle(color: Colors.white)),
                           borderSide: BorderSide(color: Colors.white),
