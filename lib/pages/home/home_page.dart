@@ -42,19 +42,31 @@ class _HomePageState extends State<HomePage> {
                   child: Row(children: <Widget>[
                     Container(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: CircleAvatar(minRadius: 32)),
+                        child: CircleAvatar(
+                            minRadius: 32,
+                            backgroundImage: AssetImage('images/cartao.jpg'))),
                     Container(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: CircleAvatar(minRadius: 32)),
+                        child: CircleAvatar(
+                            minRadius: 32,
+                            backgroundImage: AssetImage('images/zatini.jpeg'))),
                     Container(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: CircleAvatar(minRadius: 32)),
+                        child: CircleAvatar(
+                            minRadius: 32,
+                            backgroundImage:
+                                AssetImage('images/netshoes.jpeg'))),
                     Container(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: CircleAvatar(minRadius: 32)),
+                        child: CircleAvatar(
+                            minRadius: 32,
+                            backgroundImage: AssetImage('images/epoca.jpeg'))),
                     Container(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: CircleAvatar(minRadius: 32)),
+                        child: CircleAvatar(
+                            minRadius: 32,
+                            backgroundImage:
+                                AssetImage('images/consorcio.jpg'))),
                     Container(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: CircleAvatar(minRadius: 32))
