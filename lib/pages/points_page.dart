@@ -4,7 +4,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hackathonmagalusp/components/custom_drawer.dart';
 import 'package:hackathonmagalusp/components/item_points.dart';
 import 'package:hackathonmagalusp/components/line.dart';
+import 'package:hackathonmagalusp/models/product_model.dart';
 import 'package:hackathonmagalusp/pages/products_page/products_page.dart';
+import 'package:hackathonmagalusp/repository/request_repository.dart';
 
 class PointsPage extends StatefulWidget {
   @override
@@ -12,8 +14,17 @@ class PointsPage extends StatefulWidget {
 }
 
 class _PointsPageState extends State<PointsPage> {
+  List list = [];
+
   @override
   Widget build(BuildContext context) {
+    int qtd = 0;
+    if (list.length > 0) {
+      for (int i = 0; list.length > i; i++) {
+        print((list[i] as ProductModel).points);
+        qtd = qtd + (list[i] as ProductModel).points;
+      }
+    }
     return Scaffold(
         drawer: CustomDrawer(),
         appBar: AppBar(
@@ -45,7 +56,7 @@ class _PointsPageState extends State<PointsPage> {
                         child: Stack(
                           children: <Widget>[
                             Center(
-                                child: Text('250',
+                                child: Text(qtd.toString(),
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 38,
@@ -85,7 +96,7 @@ class _PointsPageState extends State<PointsPage> {
                           ])),
                 ])),
             Column(
-              children: <Widget>[ItemPoints()],
+              children: list.map((item) => ItemPoints(item)).toList(),
             )
           ])),
           Align(
@@ -108,5 +119,17 @@ class _PointsPageState extends State<PointsPage> {
                                   fontWeight: FontWeight.w500,
                                   fontSize: 14))))))
         ]));
+  }
+
+  @override
+  void initState() {
+    get();
+  }
+
+  get() async {
+    final products = await RequestRepository().get();
+    setState(() {
+      list = products;
+    });
   }
 }

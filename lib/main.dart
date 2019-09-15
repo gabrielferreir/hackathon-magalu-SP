@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackathonmagalusp/helpers/database.dart';
 import 'package:hackathonmagalusp/pages/home/home_page.dart';
 
 void main() => runApp(MyApp());
@@ -7,6 +8,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    MyDatabase().db;
     return MaterialApp(
         title: 'Magalu',
         theme: ThemeData(
