@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hackathonmagalusp/components/custom_drawer.dart';
 import 'package:hackathonmagalusp/components/item_points.dart';
 import 'package:hackathonmagalusp/components/line.dart';
+import 'package:hackathonmagalusp/pages/products_page.dart';
 
 class PointsPage extends StatefulWidget {
   @override
@@ -24,67 +25,88 @@ class _PointsPageState extends State<PointsPage> {
               IconButton(
                   icon: Icon(FontAwesomeIcons.shoppingBag), onPressed: () {})
             ]),
-        body: SingleChildScrollView(
-            child: Column(children: <Widget>[
-          Line(),
-          Container(
-              height: 194,
-              width: double.infinity,
-              color: Colors.blue,
+        body: Stack(children: <Widget>[
+          SingleChildScrollView(
               child: Column(children: <Widget>[
-                Expanded(
-                  child: Center(
-                    child: Container(
-                      height: 120,
-                      width: 120,
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white, width: 4),
-                          borderRadius: BorderRadius.circular(140.0)),
-                      child: Stack(
-                        children: <Widget>[
-                          Center(
-                              child: Text('250',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 38,
-                                      fontWeight: FontWeight.w500))),
-                          Align(
-                              alignment: Alignment.topCenter,
-                              child: Container(
-                                  height: 16,
-                                  width: 16,
-                                  transform:
-                                      Matrix4.translationValues(0.0, -8.0, 0.0),
+            Line(),
+            Container(
+                height: 194,
+                width: double.infinity,
+                color: Colors.blue,
+                child: Column(children: <Widget>[
+                  Expanded(
+                    child: Center(
+                      child: Container(
+                        height: 120,
+                        width: 120,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 4),
+                            borderRadius: BorderRadius.circular(140.0)),
+                        child: Stack(
+                          children: <Widget>[
+                            Center(
+                                child: Text('250',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 38,
+                                        fontWeight: FontWeight.w500))),
+                            Align(
+                                alignment: Alignment.topCenter,
+                                child: Container(
+                                    height: 16,
+                                    width: 16,
+                                    transform: Matrix4.translationValues(
+                                        0.0, -8.0, 0.0),
 //                              margin: const EdgeInsets.only(top: -16.0),
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius:
-                                          BorderRadius.circular(16.0))))
-                        ],
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                            BorderRadius.circular(16.0))))
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Padding(
-                    padding: const EdgeInsets.only(bottom: 16.0),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(right: 8.0),
-                            child: Icon(Icons.monetization_on,
-                                color: Colors.white),
-                          ),
-                          Text('MEUS PONTOS',
+                  Padding(
+                      padding: const EdgeInsets.only(bottom: 16.0),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(right: 8.0),
+                              child: Icon(Icons.monetization_on,
+                                  color: Colors.white),
+                            ),
+                            Text('MEUS PONTOS',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500))
+                          ])),
+                ])),
+            Column(
+              children: <Widget>[ItemPoints()],
+            )
+          ])),
+          Align(
+              alignment: Alignment.bottomCenter,
+              child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ProductsPage()));
+                  },
+                  child: Container(
+                      color: Colors.blue,
+                      height: 56,
+                      width: double.infinity,
+                      child: Center(
+                          child: Text('TROQUE AGORA',
                               style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w500))
-                        ])),
-              ])),
-          Column(
-            children: <Widget>[ItemPoints()],
-          )
-        ])));
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 14))))))
+        ]));
   }
 }
