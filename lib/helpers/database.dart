@@ -4,7 +4,7 @@ import 'package:path/path.dart';
 class MyDatabase {
   Future<Database> get db async {
     String databasesPath = await getDatabasesPath();
-    String path = join(databasesPath, 'labss.db');
+    String path = join(databasesPath, 'labsss.db');
 
     // Para teste pode ser deletado o banco
     //    await deleteDatabase(path);
@@ -21,9 +21,9 @@ class MyDatabase {
             'name TEXT, image TEXT, points INT)');
 
     await db.execute(
-        "INSERT OR REPLACE INTO request (name, points, image) VALUES ('Redmi Note 7', 30, 'https://images-na.ssl-images-amazon.com/images/I/51TPT3xFMlL._SX679_.jpg')");
+        "INSERT OR REPLACE INTO request (name, points, image) VALUES ('Redmi Note 7', 60, 'https://images-na.ssl-images-amazon.com/images/I/51TPT3xFMlL._SX679_.jpg')");
 
     await db.execute(
-        "INSERT OR REPLACE INTO request (name, points, image) VALUES ('Notebook Lenovo Ideaped', 60, 'https://a-static.mlcdn.com.br/618x463/notebook-lenovo-ideapad-330-intel-core-i5-8gb-1tb-156-windows-10/magazineluiza/220970900/a34c43e78e779c70f644e84b0f76c17a.jpg')");
+        "INSERT OR REPLACE INTO request (name, points, image) VALUES ('Notebook Lenovo Ideaped', 120, 'https://a-static.mlcdn.com.br/618x463/notebook-lenovo-ideapad-330-intel-core-i5-8gb-1tb-156-windows-10/magazineluiza/220970900/a34c43e78e779c70f644e84b0f76c17a.jpg')");
   }
 }

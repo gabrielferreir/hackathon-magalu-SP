@@ -21,7 +21,6 @@ class _PointsPageState extends State<PointsPage> {
     int qtd = 0;
     if (list.length > 0) {
       for (int i = 0; list.length > i; i++) {
-        print((list[i] as ProductModel).points);
         qtd = qtd + (list[i] as ProductModel).points;
       }
     }
@@ -38,67 +37,69 @@ class _PointsPageState extends State<PointsPage> {
             ]),
         body: Stack(children: <Widget>[
           SingleChildScrollView(
+              padding: const EdgeInsets.only(bottom: 64),
               child: Column(children: <Widget>[
-            Line(),
-            Container(
-                height: 194,
-                width: double.infinity,
-                color: Colors.blue,
-                child: Column(children: <Widget>[
-                  Expanded(
-                    child: Center(
-                      child: Container(
-                        height: 120,
-                        width: 120,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 4),
-                            borderRadius: BorderRadius.circular(140.0)),
-                        child: Stack(
-                          children: <Widget>[
-                            Center(
-                                child: Text(qtd.toString(),
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 38,
-                                        fontWeight: FontWeight.w500))),
-                            Align(
-                                alignment: Alignment.topCenter,
-                                child: Container(
-                                    height: 16,
-                                    width: 16,
-                                    transform: Matrix4.translationValues(
-                                        0.0, -8.0, 0.0),
+                Line(),
+                Container(
+                    height: 194,
+                    width: double.infinity,
+                    color: Colors.blue,
+                    child: Column(children: <Widget>[
+                      Expanded(
+                        child: Center(
+                          child: Container(
+                            height: 120,
+                            width: 120,
+                            decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.white, width: 4),
+                                borderRadius: BorderRadius.circular(140.0)),
+                            child: Stack(
+                              children: <Widget>[
+                                Center(
+                                    child: Text(qtd.toString(),
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 38,
+                                            fontWeight: FontWeight.w500))),
+                                Align(
+                                    alignment: Alignment.topCenter,
+                                    child: Container(
+                                        height: 16,
+                                        width: 16,
+                                        transform: Matrix4.translationValues(
+                                            0.0, -8.0, 0.0),
 //                              margin: const EdgeInsets.only(top: -16.0),
-                                    decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius:
-                                            BorderRadius.circular(16.0))))
-                          ],
+                                        decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(16.0))))
+                              ],
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
-                  Padding(
-                      padding: const EdgeInsets.only(bottom: 16.0),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.only(right: 8.0),
-                              child: Icon(Icons.monetization_on,
-                                  color: Colors.white),
-                            ),
-                            Text('MEUS PONTOS',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500))
-                          ])),
-                ])),
-            Column(
-              children: list.map((item) => ItemPoints(item)).toList(),
-            )
-          ])),
+                      Padding(
+                          padding: const EdgeInsets.only(bottom: 16.0),
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 8.0),
+                                  child: Icon(Icons.monetization_on,
+                                      color: Colors.white),
+                                ),
+                                Text('MEUS PONTOS',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500))
+                              ])),
+                    ])),
+                Column(
+                  children: list.map((item) => ItemPoints(item)).toList(),
+                )
+              ])),
           Align(
               alignment: Alignment.bottomCenter,
               child: InkWell(

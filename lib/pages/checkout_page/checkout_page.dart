@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hackathonmagalusp/helpers/database.dart';
 import 'package:hackathonmagalusp/models/product_model.dart';
 import 'package:hackathonmagalusp/pages/success_page.dart';
 import 'package:hackathonmagalusp/repository/request_repository.dart';
@@ -19,39 +18,10 @@ class _CheckoutPageState extends State<CheckoutPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Revisão do Pedido'),
-        ),
+        appBar: AppBar(title: Text('Revisão do Pedido')),
         body: Stack(children: <Widget>[
           SingleChildScrollView(
               child: Column(children: <Widget>[
-//            ListTile(
-//                title: Text('Endereço de entrega',
-//                    style: TextStyle(fontWeight: FontWeight.w500))),
-//            Container(
-//                width: double.infinity,
-//                child: Card(
-//                    elevation: 0,
-//                    child: Padding(
-//                        padding: const EdgeInsets.all(16.0),
-//                        child: Row(
-//                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                          children: <Widget>[
-//                            Column(
-//                                mainAxisAlignment: MainAxisAlignment.start,
-//                                crossAxisAlignment: CrossAxisAlignment.start,
-//                                children: <Widget>[
-//                                  Text(
-//                                    'Rua TANANANAM, 1231',
-//                                    style:
-//                                        TextStyle(fontWeight: FontWeight.w500),
-//                                  ),
-//                                  Text('JARDIM TTA TUS TA - FRANCA/SP'),
-//                                  Text('14402-336')
-//                                ]),
-//                            IconButton(icon: Icon(Icons.edit))
-//                          ],
-//                        )))),
             ListTile(
                 title: Text('Selecione a loja para retirada',
                     style: TextStyle(fontWeight: FontWeight.w500))),
@@ -94,7 +64,6 @@ class _CheckoutPageState extends State<CheckoutPage> {
   }
 
   _save() async {
-    print('save');
     await RequestRepository().save(widget.productModel.name,
         widget.productModel.points, widget.productModel.listImages[0]);
     Navigator.push(

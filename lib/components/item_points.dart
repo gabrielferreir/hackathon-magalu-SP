@@ -15,8 +15,7 @@ class _ItemPointsState extends State<ItemPoints> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.only(
-            left: 16.0, top: 16.0, right: 16.0, bottom: 64),
+        padding: const EdgeInsets.only(left: 16.0, top: 16.0, right: 16.0),
         child: Card(
             child: Column(children: <Widget>[
           Padding(
@@ -56,12 +55,18 @@ class _ItemPointsState extends State<ItemPoints> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
-                                Icon(Icons.monetization_on, color: Colors.blue),
+                                Icon(Icons.monetization_on,
+                                    color: widget.productModel.points > 0
+                                        ? Colors.blue
+                                        : Colors.amber),
                                 Padding(
                                     padding: const EdgeInsets.only(left: 8.0),
                                     child: Text(
                                       widget.productModel.points.toString(),
-                                      style: TextStyle(color: Colors.blue),
+                                      style: TextStyle(
+                                          color: widget.productModel.points > 0
+                                              ? Colors.blue
+                                              : Colors.amber),
                                     ))
                               ]))
                     ])
