@@ -16,14 +16,14 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       drawer: CustomDrawer(),
       appBar: AppBar(
-        title: Padding(
-            padding: const EdgeInsets.only(top: 8.0),
-            child: SvgPicture.asset('images/logo.svg', height: 20)),
-        actions: <Widget>[
-          IconButton(icon: Icon(Icons.search), onPressed: () {}),
-          IconButton(icon: Icon(FontAwesomeIcons.shoppingBag), onPressed: () {})
-        ],
-      ),
+          title: Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: SvgPicture.asset('images/logo.svg', height: 20)),
+          actions: <Widget>[
+            IconButton(icon: Icon(Icons.search), onPressed: () {}),
+            IconButton(
+                icon: Icon(FontAwesomeIcons.shoppingBag), onPressed: () {})
+          ]),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
